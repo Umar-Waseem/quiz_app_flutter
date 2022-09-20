@@ -75,13 +75,16 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                                 context,
                                 PageRouteBuilder(
                                   transitionsBuilder: (c, anim, a2, child) {
-                                    return FadeTransition(
-                                      opacity: anim,
+                                    return SlideTransition(
+                                      position: Tween<Offset>(
+                                              begin: const Offset(1, 0),
+                                              end: Offset.zero)
+                                          .animate(anim),
                                       child: child,
                                     );
                                   },
                                   transitionDuration:
-                                      const Duration(milliseconds: 1000),
+                                      const Duration(milliseconds: 300),
                                   pageBuilder: (context, a, b) {
                                     return HomeScreen(
                                       name: _nameController.text,

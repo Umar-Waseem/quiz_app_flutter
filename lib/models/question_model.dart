@@ -1,13 +1,17 @@
+import 'option_model.dart';
+
 class QuestionModel {
   String? question;
-  List<String>? options;
   String? correctAnswer;
   String? explanation;
+  String? optionSelected;
+  List<OptionModel>? options;
 
   QuestionModel({
     this.question,
-    this.options,
     this.correctAnswer,
     this.explanation,
+    this.optionSelected,
+    this.options,
   });
 }

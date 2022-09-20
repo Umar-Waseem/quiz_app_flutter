@@ -5,6 +5,8 @@ import '../models/quiz_model.dart';
 
 import 'package:uuid/uuid.dart';
 
+import 'questions.dart';
+
 var uuid = const Uuid();
 
 class QuizProvider with ChangeNotifier {
@@ -30,11 +32,13 @@ class QuizProvider with ChangeNotifier {
         quizImageUrl: "assets/images/history.jpg",
         quizAnimationUrl: "assets/images/history_animation.json"),
     QuizModel(
-        quizId: uuid.v1(),
-        quizTitle: "Geography",
-        quizDescription: "Your geography knowledge will be tested here.",
-        quizImageUrl: "assets/images/geography.jpg",
-        quizAnimationUrl: "assets/images/geography_animation.json"),
+      quizId: uuid.v1(),
+      quizTitle: "Geography",
+      quizDescription: "Your geography knowledge will be tested here.",
+      quizImageUrl: "assets/images/geography.jpg",
+      quizAnimationUrl: "assets/images/geography_animation.json",
+      questions: questions["Geography"],
+    ),
     QuizModel(
         quizId: uuid.v1(),
         quizTitle: "Politics",
