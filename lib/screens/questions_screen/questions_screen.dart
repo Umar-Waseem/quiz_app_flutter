@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:quiz_app_flutter/models/quiz_model.dart';
 
 import '../../themes/custom_text_theme.dart';
+import 'result_screen.dart';
+
+int score = 1;
 
 class QuestionsScreen extends StatefulWidget {
   const QuestionsScreen({super.key, required this.quizModel});
@@ -27,7 +30,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
             child: Column(
               children: [
                 Text(
-                  "Question $index",
+                  "Question ${index + 1} of ${widget.quizModel.questions!.length}",
                   style:
                       customTextThemes.headline2?.copyWith(color: Colors.grey),
                 ),
@@ -52,10 +55,22 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                         backgroundColor: Colors.green,
                         padding: const EdgeInsets.all(20),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ResultScreen(
+                              totalQuestions:
+                                  widget.quizModel.questions!.length,
+                              score: score,
+                            ),
+                          ),
+                        );
+                      },
                       child: const Text("Submit"),
                     ),
                   ),
+                // if(index != widget.quizModel.questions!.length - 1)
               ],
             ),
           ),
@@ -112,6 +127,16 @@ class _QuestionAndOptionsState extends State<QuestionAndOptions> {
                           .optionSelected =
                       widget.quizModel.questions![widget.questionIndex]
                           .options![index].optionName;
+
+                  if (widget.quizModel.questions![widget.questionIndex]
+                          .optionSelected ==
+                      widget.quizModel.questions![widget.questionIndex]
+                          .correctAnswer) {
+                    score = score + 1;
+                    print("correct answer");
+                  } else {
+                    score = score;
+                  }
 
                   //? make all other options false
                   for (int i = 0;
