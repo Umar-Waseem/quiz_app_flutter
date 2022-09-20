@@ -1,47 +1,62 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:quiz_app_flutter/themes/custom_text_theme.dart';
 
-class QuizScreen extends StatelessWidget {
-  const QuizScreen(
-      {super.key,
-      required this.id,
-      required this.title,
-      required this.description,
-      required this.imageUrl});
+import '../../models/quiz_model.dart';
+import '../animation_screen/animation_screen.dart';
+import 'quiz_screen_widgets/sliver_app_bar_widget.dart';
 
-  final String id;
-  final String title;
-  final String description;
-  final String imageUrl;
+class QuizScreen extends StatelessWidget {
+  const QuizScreen({
+    super.key,
+    required this.quizModel,
+  });
+
+  final QuizModel quizModel;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: CustomScrollView(
         slivers: [
-          SliverAppBar(
-            pinned: true,
-            expandedHeight: 200,
-            flexibleSpace: FlexibleSpaceBar(
-              background: Hero(
-                tag: id,
-                child: Image(
-                  image: AssetImage(imageUrl),
-                  fit: BoxFit.cover,
-                ),
-              ),
-              title: Text(title),
-            ),
+          SliverAppBarWidget(
+            id: quizModel.quizId.toString(),
+            imageUrl: quizModel.quizImageUrl.toString(),
+            title: quizModel.quizTitle.toString(),
           ),
           SliverList(
             delegate: SliverChildListDelegate(
               [
                 Container(
-                  height: 1000,
-                  padding: const EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(20),
                   child: Text(
-                    description,
-                    style: customTextThemes.headline3,
+                    quizModel.quizDescription.toString(),
+                    style: customTextThemes.headline2,
+                  ),
+                ),
+                Lottie.asset(
+                  quizModel.quizAnimationUrl.toString(),
+                  repeat: true,
+                  reverse: true,
+                  animate: true,
+                ),
+                // Expanded(child: Container()),
+                const SizedBox(height: 20),
+                Container(
+                  padding: const EdgeInsets.all(20),
+                  alignment: Alignment.centerRight,
+                  child: ElevatedButton.icon(
+                    onPressed: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => AnimationScreen(
+                            quizModel: quizModel,
+                          ),
+                        ),
+                      );
+                    },
+                    icon: const Icon(Icons.navigate_next_outlined),
+                    label: const Text("Start Quiz"),
                   ),
                 ),
               ],

@@ -7,6 +7,7 @@ class QuizModel {
   String? quizImageUrl;
   // int? quizTime;
   List<QuestionModel>? questions;
+  String? quizAnimationUrl;
 
   QuizModel({
     this.quizId,
@@ -15,5 +16,6 @@ class QuizModel {
     this.quizImageUrl,
     // this.quizTime,
     this.questions,
+    this.quizAnimationUrl,
   });
 }

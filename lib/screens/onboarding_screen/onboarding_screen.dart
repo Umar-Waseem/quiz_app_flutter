@@ -38,6 +38,9 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                     ),
                     const SizedBox(height: 30),
                     TextField(
+                      onChanged: (value) {
+                        setState(() {});
+                      },
                       maxLength: 10,
                       controller: _nameController,
                       decoration: InputDecoration(
@@ -57,16 +60,37 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                     ),
                     const SizedBox(height: 20),
                     ElevatedButton.icon(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => HomeScreen(
-                              name: _nameController.text,
-                            ),
+                      style: ElevatedButton.styleFrom(
+                        fixedSize: const Size(250, 50),
+                        backgroundColor: Colors.green,
+                        shape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(30),
                           ),
-                        );
-                      },
+                        ),
+                      ),
+                      onPressed: _nameController.text.isNotEmpty
+                          ? () {
+                              Navigator.push(
+                                context,
+                                PageRouteBuilder(
+                                  transitionsBuilder: (c, anim, a2, child) {
+                                    return FadeTransition(
+                                      opacity: anim,
+                                      child: child,
+                                    );
+                                  },
+                                  transitionDuration:
+                                      const Duration(milliseconds: 1000),
+                                  pageBuilder: (context, a, b) {
+                                    return HomeScreen(
+                                      name: _nameController.text,
+                                    );
+                                  },
+                                ),
+                              );
+                            }
+                          : null,
                       clipBehavior: Clip.antiAlias,
                       icon: const Icon(Icons.arrow_right),
                       label: const Text("Lets Start"),

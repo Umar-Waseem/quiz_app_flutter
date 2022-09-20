@@ -2,20 +2,15 @@ import 'package:flutter/material.dart';
 
 import '../screens/quiz_screen/quiz_screen.dart';
 import '../themes/custom_text_theme.dart';
+import 'quiz_model.dart';
 
 class QuizCard extends StatelessWidget {
   const QuizCard({
     Key? key,
-    required this.id,
-    required this.title,
-    required this.description,
-    required this.imageUrl,
+    required this.qModel
   }) : super(key: key);
 
-  final String id;
-  final String title;
-  final String description;
-  final String imageUrl;
+  final QuizModel qModel;
 
   @override
   Widget build(BuildContext context) {
@@ -24,10 +19,7 @@ class QuizCard extends StatelessWidget {
         Navigator.of(context).push(
           MaterialPageRoute(
             builder: (context) => QuizScreen(
-              id: id,
-              title: title,
-              description: description,
-              imageUrl: imageUrl,
+              quizModel: qModel,
             ),
           ),
         );
@@ -45,9 +37,9 @@ class QuizCard extends StatelessWidget {
               ClipRRect(
                 borderRadius: BorderRadius.circular(15),
                 child: Hero(
-                  tag: id,
+                  tag: qModel.quizId.toString(),
                   child: Image.asset(
-                    imageUrl,
+                    qModel.quizImageUrl.toString(),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -67,7 +59,7 @@ class QuizCard extends StatelessWidget {
                 ),
                 alignment: Alignment.bottomLeft,
                 child: Text(
-                  title,
+                  qModel.quizTitle.toString(),
                   style: customTextThemes.headline2,
                 ),
               ),

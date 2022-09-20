@@ -12,39 +12,41 @@ class QuizProvider with ChangeNotifier {
     QuizModel(
       quizId: uuid.v1(),
       quizTitle: "Sports",
-      quizDescription: "Your sports knowledge will be tested here.",
+      quizDescription:
+          "This quiz consists of questions related to the field of sports. Your knowledge of different sports will be tested.",
       quizImageUrl: "assets/images/sports.jpg",
+      quizAnimationUrl: "assets/images/sports_animation.json",
     ),
     QuizModel(
-      quizId: uuid.v1(),
-      quizTitle: "Science",
-      quizDescription: "Your science knowledge will be tested here.",
-      quizImageUrl: "assets/images/science.jpg",
-    ),
+        quizId: uuid.v1(),
+        quizTitle: "Science",
+        quizDescription: "Your science knowledge will be tested here.",
+        quizImageUrl: "assets/images/science.jpg",
+        quizAnimationUrl: "assets/images/science_animation.json"),
     QuizModel(
-      quizId: uuid.v1(),
-      quizTitle: "History",
-      quizDescription: "Your history knowledge will be tested here.",
-      quizImageUrl: "assets/images/history.jpg",
-    ),
+        quizId: uuid.v1(),
+        quizTitle: "History",
+        quizDescription: "Your history knowledge will be tested here.",
+        quizImageUrl: "assets/images/history.jpg",
+        quizAnimationUrl: "assets/images/history_animation.json"),
     QuizModel(
-      quizId: uuid.v1(),
-      quizTitle: "Geography",
-      quizDescription: "Your geography knowledge will be tested here.",
-      quizImageUrl: "assets/images/geography.jpg",
-    ),
+        quizId: uuid.v1(),
+        quizTitle: "Geography",
+        quizDescription: "Your geography knowledge will be tested here.",
+        quizImageUrl: "assets/images/geography.jpg",
+        quizAnimationUrl: "assets/images/geography_animation.json"),
     QuizModel(
-      quizId: uuid.v1(),
-      quizTitle: "Politics",
-      quizDescription: "Your politics knowledge will be tested here.",
-      quizImageUrl: "assets/images/politics.jpg",
-    ),
+        quizId: uuid.v1(),
+        quizTitle: "Politics",
+        quizDescription: "Your politics knowledge will be tested here.",
+        quizImageUrl: "assets/images/politics.jpg",
+        quizAnimationUrl: "assets/images/politics_animation.json"),
     QuizModel(
-      quizId: uuid.v1(),
-      quizTitle: "Entertainment",
-      quizDescription: "Your entertainment knowledge will be tested here.",
-      quizImageUrl: "assets/images/entertainment.jpg",
-    ),
+        quizId: uuid.v1(),
+        quizTitle: "Entertainment",
+        quizDescription: "Your entertainment knowledge will be tested here.",
+        quizImageUrl: "assets/images/entertainment.jpg",
+        quizAnimationUrl: "assets/images/entertainment_animation.json"),
   ];
 
   List<QuizModel> get quizes => [..._models];
@@ -52,10 +54,7 @@ class QuizProvider with ChangeNotifier {
   List<QuizCard> get getQuizCards => _models
       .map(
         (quiz) => QuizCard(
-          id: quiz.quizId!,
-          title: quiz.quizTitle!,
-          description: quiz.quizDescription!,
-          imageUrl: quiz.quizImageUrl!,
+          qModel: quiz,
         ),
       )
       .toList();
