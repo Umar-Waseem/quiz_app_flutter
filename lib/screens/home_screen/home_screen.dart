@@ -40,7 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return SafeArea(
       child: Scaffold(
         bottomNavigationBar: _banner == null
-            ? Container()
+            ? const Text("Ad Not Loaded")
             : SizedBox(
                 height: 50,
                 child: AdWidget(ad: _banner!),
