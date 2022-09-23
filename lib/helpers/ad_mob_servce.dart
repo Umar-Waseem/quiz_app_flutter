@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -54,4 +55,54 @@ class AdMobService {
     onAdClosed: (Ad ad) => debugPrint('Ad closed.'),
     // onApplicationExit: (Ad ad) => debugPrint('Left application.'),
   );
+
+  static BannerAd? banner;
+  static InterstitialAd? interstitialAd;
+
+  static void createBannerAd() {
+    banner = BannerAd(
+      adUnitId: AdMobService.bannerAdUnitId!,
+      size: AdSize.fullBanner,
+      request: const AdRequest(),
+      listener: AdMobService.bannerListener,
+    )..load();
+  }
+
+  static void createInterstitialAd() {
+    log("inside create");
+    InterstitialAd.load(
+      adUnitId: AdMobService.interstitialAdUnitId!,
+      request: const AdRequest(),
+      adLoadCallback: InterstitialAdLoadCallback(
+        onAdLoaded: (ad) {
+          log('InterstitialAd loaded.');
+          interstitialAd = ad;
+        },
+        onAdFailedToLoad: (error) {
+          log('InterstitialAd failed to load: $error');
+        },
+      ),
+    );
+  }
+
+  static void showInterstitialAd() {
+    log('inside show');
+
+    if (interstitialAd != null) {
+      log("interstitial ad is not null");
+      interstitialAd!.fullScreenContentCallback = FullScreenContentCallback(
+        onAdDismissedFullScreenContent: (ad) {
+          ad.dispose();
+          createInterstitialAd();
+        },
+        onAdFailedToShowFullScreenContent: (ad, error) {
+          log('$ad onAdFailedToShowFullScreenContent: $error');
+          ad.dispose();
+          createInterstitialAd();
+        },
+      );
+      interstitialAd!.show();
+      interstitialAd = null;
+    }
+  }
 }

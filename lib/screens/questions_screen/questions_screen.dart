@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app_flutter/models/quiz_model.dart';
 
+import '../../helpers/ad_mob_servce.dart';
 import '../../themes/custom_text_theme.dart';
 import 'question_screen_widgets/submit_button.dart';
 
@@ -20,6 +21,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
     score = 0;
 
     super.initState();
+    AdMobService.createInterstitialAd();
   }
 
   final pageController = PageController();
@@ -35,6 +37,12 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
           controller: pageController,
           scrollDirection: Axis.horizontal,
           itemCount: widget.quizModel.questions!.length,
+          onPageChanged: (index) {
+            // show ad if index is 6
+            if (index == 5) {
+              AdMobService.showInterstitialAd();
+            }
+          },
           itemBuilder: (context, index) => Padding(
             padding: const EdgeInsets.all(20.0),
             child: SingleChildScrollView(

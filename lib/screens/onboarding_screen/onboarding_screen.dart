@@ -4,7 +4,9 @@ import 'package:lottie/lottie.dart';
 import '../home_screen/home_screen.dart';
 
 class OnBoardingScreen extends StatefulWidget {
-  const OnBoardingScreen({super.key});
+  const OnBoardingScreen({super.key, required this.func});
+
+  final VoidCallback? func;
 
   @override
   State<OnBoardingScreen> createState() => _OnBoardingScreenState();
@@ -16,6 +18,9 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        floatingActionButton: FloatingActionButton(
+          onPressed: widget.func,
+        ),
         body: SingleChildScrollView(
           child: Column(
             children: [

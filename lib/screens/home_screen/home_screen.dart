@@ -17,33 +17,27 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  BannerAd? _banner;
-
   @override
   void initState() {
     super.initState();
 
-    _createBannerAd();
-  }
-
-  void _createBannerAd() {
-    _banner = BannerAd(
-      adUnitId: AdMobService.bannerAdUnitId!,
-      size: AdSize.fullBanner,
-      request: const AdRequest(),
-      listener: AdMobService.bannerListener,
-    )..load();
+    AdMobService.createBannerAd();
+    AdMobService.createInterstitialAd();
   }
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        bottomNavigationBar: _banner == null
+        floatingActionButton: FloatingActionButton(
+          onPressed: () => AdMobService.showInterstitialAd(),
+          child: const Icon(Icons.add),
+        ),
+        bottomNavigationBar: AdMobService.banner == null
             ? const Text("Ad Not Loaded")
             : SizedBox(
                 height: 50,
-                child: AdWidget(ad: _banner!),
+                child: AdWidget(ad: AdMobService.banner!),
               ),
         body: SingleChildScrollView(
           child: Container(
