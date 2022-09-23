@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:quiz_app_flutter/themes/custom_text_theme.dart';
 
@@ -17,9 +18,15 @@ class ResultScreen extends StatelessWidget {
         child: Scaffold(
       body: score == totalQuestions
           ? CustomWidget(
-              score: score, totalQuestions: totalQuestions, win: true)
+              score: score,
+              totalQuestions: totalQuestions,
+              win: true,
+            )
           : CustomWidget(
-              score: score, totalQuestions: totalQuestions, win: false),
+              score: score,
+              totalQuestions: totalQuestions,
+              win: false,
+            ),
     ));
   }
 }
@@ -52,13 +59,14 @@ class CustomWidget extends StatelessWidget {
             style: Theme.of(context).textTheme.headline6,
           ),
           const SizedBox(height: 20),
-          if (win) const Win(),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.of(context).popUntil((route) => route.isFirst);
-            },
-            child: const Text("Go back"),
-          ),
+          win
+              ? Win(score: score)
+              : ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).popUntil((route) => route.isFirst);
+                  },
+                  child: const Text("Go back"),
+                ),
         ],
       ),
     );
@@ -66,7 +74,9 @@ class CustomWidget extends StatelessWidget {
 }
 
 class Win extends StatefulWidget {
-  const Win({super.key});
+  const Win({super.key, required this.score});
+
+  final int score;
 
   @override
   State<Win> createState() => _WinState();
@@ -75,6 +85,10 @@ class Win extends StatefulWidget {
 class _WinState extends State<Win> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
+
+  bool loading = false;
+  bool isValid = false;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -88,6 +102,11 @@ class _WinState extends State<Win> {
           const SizedBox(height: 20),
           TextFormField(
             controller: _nameController,
+            onChanged: (value) {
+              setState(() {
+                isValid = value.isNotEmpty && _emailController.text.isNotEmpty;
+              });
+            },
             decoration: InputDecoration(
               hintText: "Enter your name",
               filled: true,
@@ -106,6 +125,11 @@ class _WinState extends State<Win> {
           ),
           const SizedBox(height: 20),
           TextFormField(
+            onChanged: (value) {
+              setState(() {
+                isValid = value.isNotEmpty && _nameController.text.isNotEmpty;
+              });
+            },
             controller: _emailController,
             decoration: InputDecoration(
               hintText: "Enter your email",
@@ -123,9 +147,81 @@ class _WinState extends State<Win> {
               ),
             ),
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: 40),
+          loading
+              ? const CircularProgressIndicator()
+              : ElevatedButton(
+                  onPressed: isValid
+                      ? () async {
+                          setState(() {
+                            loading = true;
+                          });
+
+                          try {
+                            await FirebaseFirestore.instance
+                                .collection("users")
+                                .add({
+                              "name": _nameController.text,
+                              "email": _emailController.text,
+                              "score": widget.score,
+                            }).then(
+                              (value) {
+                                setState(() {
+                                  loading = false;
+                                });
+                                showModalBottomSheet(
+                                  context: context,
+                                  builder: (context) {
+                                    return Container(
+                                      height: 100,
+                                      color: Colors.green,
+                                      child: Center(
+                                        child: Text(
+                                          "Thank you for your information",
+                                          style: customTextThemes.headline2,
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                );
+                                Navigator.of(context)
+                                    .popUntil((route) => route.isFirst);
+                              },
+                            );
+                          } catch (e) {
+                            onError(context, e);
+                          }
+                        }
+                      : null,
+                  child: const Text("Submit"),
+                ),
         ],
       ),
     );
   }
+
+  Future<dynamic> onError(BuildContext context, Object error) {
+    return showModalBottomSheet(
+      context: context,
+      builder: (context) {
+        return Container(
+          height: 100,
+          color: Colors.red,
+          child: Center(
+            child: Text(
+              error.toString(),
+              style: customTextThemes.headline2,
+            ),
+          ),
+        );
+      },
+    );
+  }
 }
+
+// bool isValid(String val1, String val2) {
+//   if (val1.isEmpty || val2.isEmpty) {
+//     return false;
+//   }
+//   return true;
+// }
