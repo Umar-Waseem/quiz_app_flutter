@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:provider/provider.dart';
+import 'package:quiz_app_flutter/helpers/ad_mob_service.dart';
 
 import 'providers/quiz_provider.dart';
 import 'screens/onboarding_screen/onboarding_screen.dart';
@@ -27,7 +28,7 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   log('Handling a background message ${message.messageId}');
 }
 
-Future<void> main() async {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
@@ -45,33 +46,11 @@ Future<void> main() async {
 
   MobileAds.instance.initialize();
 
-  // FirebaseMessaging messaging = FirebaseMessaging.instance;
+  AdMobService.interstitialAdForMain();
 
-  // NotificationSettings settings = await messaging.requestPermission(
-  //   alert: true,
-  //   announcement: false,
-  //   badge: true,
-  //   carPlay: false,
-  //   criticalAlert: false,
-  //   provisional: false,
-  //   sound: true,
-  // );
-
-  // log('User granted permission: ${settings.authorizationStatus}');
-
-  // messaging.getToken().then((value) {
-  //   log(value.toString(), name: 'FCM Token');
-  // });
-
-  // FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-  //   log('Got a message whilst in the foreground!');
-  //   log('Message data: ${message.data}');
-  //   if (message.notification != null) {
-  //     log('Message also contained a notification: ${message.notification}');
-  //   }
-  // });
-
-  runApp(const MyApp());
+  runApp(
+    const MyApp(),
+  );
 }
 
 class MyApp extends StatefulWidget {
@@ -157,7 +136,10 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) => QuizProvider()),
+        // ?provides the quiz data all the way down to all the widgets
+        ChangeNotifierProvider(create: (context) {
+          return QuizProvider();
+        }),
       ],
       child: MaterialApp(
         title: 'Quiz App Flutter',
@@ -170,8 +152,7 @@ class _MyAppState extends State<MyApp> {
           primarySwatch: Colors.green,
           scaffoldBackgroundColor: Colors.white,
         ),
-        home:  OnBoardingScreen(func: showNotification),
-        
+        home: OnBoardingScreen(func: showNotification),
       ),
     );
   }

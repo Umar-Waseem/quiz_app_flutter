@@ -6,6 +6,7 @@ class QuestionModel {
   String? explanation;
   String? optionSelected;
   List<OptionModel>? options;
+  bool? status; // true, false
 
   QuestionModel({
     this.question,
@@ -13,5 +14,9 @@ class QuestionModel {
     this.explanation,
     this.optionSelected,
     this.options,
+    this.status,
   });
+
+  // compareTo(QuestionModel b) {}
+
 }

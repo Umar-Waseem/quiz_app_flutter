@@ -1,5 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:quiz_app_flutter/models/quiz_model.dart';
+import 'package:quiz_app_flutter/screens/result_screen/see_answers_screen.dart';
 import 'package:quiz_app_flutter/themes/custom_text_theme.dart';
 
 class ResultScreen extends StatelessWidget {
@@ -7,27 +9,32 @@ class ResultScreen extends StatelessWidget {
     super.key,
     required this.totalQuestions,
     required this.score,
+    required this.quizModel,
   });
 
   final int totalQuestions;
   final int score;
+  final QuizModel quizModel;
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-        child: Scaffold(
-      body: score == totalQuestions
-          ? CustomWidget(
-              score: score,
-              totalQuestions: totalQuestions,
-              win: true,
-            )
-          : CustomWidget(
-              score: score,
-              totalQuestions: totalQuestions,
-              win: false,
-            ),
-    ));
+      child: Scaffold(
+        body: score == totalQuestions
+            ? CustomWidget(
+                score: score,
+                totalQuestions: totalQuestions,
+                win: true,
+                quizModel: quizModel,
+              )
+            : CustomWidget(
+                score: score,
+                totalQuestions: totalQuestions,
+                win: false,
+                quizModel: quizModel,
+              ),
+      ),
+    );
   }
 }
 
@@ -37,8 +44,10 @@ class CustomWidget extends StatelessWidget {
     required this.score,
     required this.totalQuestions,
     required this.win,
+    required this.quizModel,
   }) : super(key: key);
 
+  final QuizModel quizModel;
   final int score;
   final int totalQuestions;
   final bool win;
@@ -61,11 +70,28 @@ class CustomWidget extends StatelessWidget {
           const SizedBox(height: 20),
           win
               ? Win(score: score)
-              : ElevatedButton(
-                  onPressed: () {
-                    Navigator.of(context).popUntil((route) => route.isFirst);
-                  },
-                  child: const Text("Go back"),
+              : Column(
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                        Navigator.of(context).pop();
+                      },
+                      child: const Text("Start Again"),
+                    ),
+                    const SizedBox(height: 20),
+                    // see correc answers
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.of(context).pushReplacement(
+                          MaterialPageRoute(
+                            builder: (context) =>  SeeAnswersScreen(quizModel: quizModel),
+                          ),
+                        );
+                      },
+                      child: const Text("See Correct Answers"),
+                    ),
+                  ],
                 ),
         ],
       ),

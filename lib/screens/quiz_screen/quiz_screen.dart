@@ -6,7 +6,7 @@ import '../../models/quiz_model.dart';
 import '../animation_screen/animation_screen.dart';
 import 'quiz_screen_widgets/sliver_app_bar_widget.dart';
 
-class QuizScreen extends StatelessWidget {
+class QuizScreen extends StatefulWidget {
   const QuizScreen({
     super.key,
     required this.quizModel,
@@ -15,14 +15,25 @@ class QuizScreen extends StatelessWidget {
   final QuizModel quizModel;
 
   @override
+  State<QuizScreen> createState() => _QuizScreenState();
+}
+
+class _QuizScreenState extends State<QuizScreen> {
+  @override
+  void initState() {
+    widget.quizModel.questions!.shuffle();
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: CustomScrollView(
         slivers: [
           SliverAppBarWidget(
-            id: quizModel.quizId.toString(),
-            imageUrl: quizModel.quizImageUrl.toString(),
-            title: quizModel.quizTitle.toString(),
+            id: widget.quizModel.quizId.toString(),
+            imageUrl: widget.quizModel.quizImageUrl.toString(),
+            title: widget.quizModel.quizTitle.toString(),
           ),
           SliverList(
             delegate: SliverChildListDelegate(
@@ -30,12 +41,12 @@ class QuizScreen extends StatelessWidget {
                 Container(
                   padding: const EdgeInsets.all(20),
                   child: Text(
-                    quizModel.quizDescription.toString(),
+                    widget.quizModel.quizDescription.toString(),
                     style: customTextThemes.headline2,
                   ),
                 ),
                 Lottie.asset(
-                  quizModel.quizAnimationUrl.toString(),
+                  widget.quizModel.quizAnimationUrl.toString(),
                   repeat: true,
                   reverse: true,
                   animate: true,
@@ -50,7 +61,7 @@ class QuizScreen extends StatelessWidget {
                       Navigator.of(context).push(
                         MaterialPageRoute(
                           builder: (context) => AnimationScreen(
-                            quizModel: quizModel,
+                            quizModel: widget.quizModel,
                           ),
                         ),
                       );

@@ -1,7 +1,9 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:quiz_app_flutter/models/quiz_model.dart';
 
-import '../../helpers/ad_mob_servce.dart';
+import '../../helpers/ad_mob_service.dart';
 import '../../themes/custom_text_theme.dart';
 import 'question_screen_widgets/submit_button.dart';
 
@@ -39,35 +41,34 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
           itemCount: widget.quizModel.questions!.length,
           onPageChanged: (index) {
             // show ad if index is 6
-            if (index == 5) {
+            if (index == 8) {
               AdMobService.showInterstitialAd();
             }
           },
           itemBuilder: (context, index) => Padding(
             padding: const EdgeInsets.all(20.0),
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  Text(
-                    "Question ${index + 1} of ${widget.quizModel.questions!.length}",
-                    style: customTextThemes.headline2
-                        ?.copyWith(color: Colors.grey),
-                  ),
-                  const SizedBox(height: 10),
-                  Text(
-                    widget.quizModel.questions![index].question.toString(),
-                    style: customTextThemes.headline1,
-                  ),
-                  QuestionAndOptions(
-                    quizModel: widget.quizModel,
-                    questionIndex: index,
-                  ),
-                  (index == widget.quizModel.questions!.length - 1)
-                      ? SubmitButton(widget: widget)
-                      : NextPreviousPageButton(pageController: pageController),
-                  // if(index != widget.quizModel.questions!.length - 1)
-                ],
-              ),
+            child: Column(
+              children: [
+                Text(
+                  "Question ${index + 1} of ${widget.quizModel.questions!.length}",
+                  style:
+                      customTextThemes.headline2?.copyWith(color: Colors.grey),
+                ),
+                const SizedBox(height: 10),
+                Text(
+                  widget.quizModel.questions![index].question.toString(),
+                  style: customTextThemes.headline1,
+                ),
+                const SizedBox(height: 20),
+                QuestionAndOptions(
+                  quizModel: widget.quizModel,
+                  questionIndex: index,
+                ),
+                const SizedBox(height: 30),
+                (index == widget.quizModel.questions!.length - 1)
+                    ? SubmitButton(widget: widget, quizModel: widget.quizModel)
+                    : NextPreviousPageButton(pageController: pageController),
+              ],
             ),
           ),
         ),
@@ -137,8 +138,10 @@ class QuestionAndOptions extends StatefulWidget {
 }
 
 class _QuestionAndOptionsState extends State<QuestionAndOptions> {
+  // List<QuestionModel> questionsToShow = [];
   @override
   void initState() {
+    // ?initialize every thing to false or empty so that user starts from scratch
     for (var element in widget.quizModel.questions!) {
       element.optionSelected = "";
       for (var element in element.options!) {
@@ -147,6 +150,10 @@ class _QuestionAndOptionsState extends State<QuestionAndOptions> {
     }
 
     super.initState();
+
+    //? radomize the questions and options
+
+    // questionsToShow = widget.quizModel.getShuffledQuestions;
   }
 
   @override
@@ -160,42 +167,50 @@ class _QuestionAndOptionsState extends State<QuestionAndOptions> {
           margin: const EdgeInsets.only(top: 20),
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
-              padding: const EdgeInsets.all(30),
+              // padding: const EdgeInsets.all(25),
               foregroundColor: Colors.black,
+              // ? green color button for selcted button/option
               backgroundColor: widget.quizModel.questions![widget.questionIndex]
                       .options![index].isSelected!
                   ? Colors.green
                   : Colors.grey,
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(50),
               ),
             ),
             onPressed: () {
               setState(
                 () {
-                  // ? set the selected option tile on ui
+                  // ? set the selected option status as true or false in isSelected property
                   widget.quizModel.questions![widget.questionIndex]
                           .options![index].isSelected =
                       !widget.quizModel.questions![widget.questionIndex]
                           .options![index].isSelected!;
 
-                  //? save the selected option for score
+                  //? save the selected option for score in optionSelected property
                   widget.quizModel.questions![widget.questionIndex]
                           .optionSelected =
                       widget.quizModel.questions![widget.questionIndex]
                           .options![index].optionName;
 
+                  // ?score increments if the selected option is correct
                   if (widget.quizModel.questions![widget.questionIndex]
                           .optionSelected ==
                       widget.quizModel.questions![widget.questionIndex]
                           .correctAnswer) {
                     score = score + 1;
                     print("correct answer");
+                    widget.quizModel.questions![widget.questionIndex].status =
+                        true;
                   } else {
+                    // ?score remains same if the selected option is wrong
                     score = score;
+                    widget.quizModel.questions![widget.questionIndex].status =
+                        false;
+                    print("wrong answer");
                   }
 
-                  //? make all other options false
+                  //? make all other options false while only selected one will be true
                   for (int i = 0;
                       i <
                           widget.quizModel.questions![widget.questionIndex]
@@ -208,7 +223,11 @@ class _QuestionAndOptionsState extends State<QuestionAndOptions> {
                   }
                 },
               );
+              log(widget
+                  .quizModel.questions![widget.questionIndex].optionSelected
+                  .toString());
             },
+            // ? show the options in buttons
             child: Text(
               widget.quizModel.questions![widget.questionIndex].options![index]
                   .optionName

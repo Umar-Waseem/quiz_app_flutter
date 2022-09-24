@@ -83,6 +83,7 @@ class AdMobService {
         },
       ),
     );
+    log(interstitialAd == null ? "null in create" : "success in create");
   }
 
   static void showInterstitialAd() {
@@ -101,8 +102,32 @@ class AdMobService {
           createInterstitialAd();
         },
       );
+      log("ad was not null");
       interstitialAd!.show();
       interstitialAd = null;
+      return;
     }
+    log("ad was null");
+  }
+
+  static void interstitialAdForMain() {
+    log("inside create");
+    InterstitialAd.load(
+      adUnitId: AdMobService.interstitialAdUnitId!,
+      request: const AdRequest(),
+      adLoadCallback: InterstitialAdLoadCallback(
+        onAdLoaded: (ad) {
+          log('InterstitialAd loaded.');
+          interstitialAd = ad;
+          showInterstitialAd();
+        },
+        onAdFailedToLoad: (error) {
+          log('InterstitialAd failed to load: $error');
+        },
+      ),
+    );
+    log(AdMobService.interstitialAd == null
+        ? "null in create"
+        : "success in create");
   }
 }

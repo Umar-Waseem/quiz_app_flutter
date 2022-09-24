@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app_flutter/models/quiz_model.dart';
 
 import '../../result_screen/result_screen.dart';
 import '../questions_screen.dart';
@@ -7,7 +8,10 @@ class SubmitButton extends StatelessWidget {
   const SubmitButton({
     Key? key,
     required this.widget,
+    required this.quizModel,
   }) : super(key: key);
+
+  final QuizModel quizModel;
 
   final QuestionsScreen widget;
 
@@ -25,13 +29,16 @@ class SubmitButton extends StatelessWidget {
           padding: const EdgeInsets.all(20),
         ),
         onPressed: () {
-          Navigator.push(
+          Navigator.pushReplacement(
             context,
             MaterialPageRoute(
-              builder: (context) => ResultScreen(
-                totalQuestions: widget.quizModel.questions!.length,
-                score: score,
-              ),
+              builder: (context) {
+                return ResultScreen(
+                  totalQuestions: widget.quizModel.questions!.length,
+                  score: score,
+                  quizModel: widget.quizModel,
+                );
+              },
             ),
           );
         },

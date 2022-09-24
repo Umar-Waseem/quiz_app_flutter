@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:provider/provider.dart';
-import 'package:quiz_app_flutter/helpers/ad_mob_servce.dart';
+import 'package:quiz_app_flutter/helpers/ad_mob_service.dart';
 import 'package:quiz_app_flutter/themes/custom_text_theme.dart';
 import '../../providers/quiz_provider.dart';
 import 'home_screen_widgets/profile_image_widget.dart';

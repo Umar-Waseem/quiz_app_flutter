@@ -6,15 +6,15 @@ Map<String, List<QuestionModel>> questions = {
     QuestionModel(
       question: "What is the capital of India?",
       options: [
-        OptionModel(optionName: "New Delhi", isSelected: false),
+        OptionModel(optionName: "Delhi", isSelected: false),
         OptionModel(optionName: "Mumbai", isSelected: false),
         OptionModel(optionName: "Kolkata", isSelected: false),
-        OptionModel(optionName: "Chennai", isSelected: false),
+        // OptionModel(optionName: "Chennai", isSelected: false),
       ],
       correctAnswer: "Delhi",
       explanation:
           "Delhi is the capital of India. It is the second most populous city in India after Mumbai.",
-      optionSelected: "",
+      optionSelected: "as",
     ),
     QuestionModel(
       question: "What is the capital of Pakistan?",
@@ -22,7 +22,7 @@ Map<String, List<QuestionModel>> questions = {
         OptionModel(optionName: "Islamabad", isSelected: false),
         OptionModel(optionName: "Karachi", isSelected: false),
         OptionModel(optionName: "Lahore", isSelected: false),
-        OptionModel(optionName: "Peshawar", isSelected: false),
+        // OptionModel(optionName: "Peshawar", isSelected: false),
       ],
       correctAnswer: "Islamabad",
       explanation:
@@ -35,7 +35,7 @@ Map<String, List<QuestionModel>> questions = {
         OptionModel(optionName: "Beijing", isSelected: false),
         OptionModel(optionName: "Shanghai", isSelected: false),
         OptionModel(optionName: "Tianjin", isSelected: false),
-        OptionModel(optionName: "Chongqing", isSelected: false),
+        // OptionModel(optionName: "Chongqing", isSelected: false),
       ],
       correctAnswer: "Beijing",
       explanation:
@@ -48,7 +48,7 @@ Map<String, List<QuestionModel>> questions = {
         OptionModel(optionName: "Tokyo", isSelected: false),
         OptionModel(optionName: "Osaka", isSelected: false),
         OptionModel(optionName: "Yokohama", isSelected: false),
-        OptionModel(optionName: "Nagoya", isSelected: false),
+        // OptionModel(optionName: "Nagoya", isSelected: false),
       ],
       correctAnswer: "Tokyo",
       explanation:
@@ -61,7 +61,7 @@ Map<String, List<QuestionModel>> questions = {
         OptionModel(optionName: "Moscow", isSelected: false),
         OptionModel(optionName: "Saint Petersburg", isSelected: false),
         OptionModel(optionName: "Novosibirsk", isSelected: false),
-        OptionModel(optionName: "Yekaterinburg", isSelected: false),
+        // OptionModel(optionName: "Yekaterinburg", isSelected: false),
       ],
       correctAnswer: "Moscow",
       explanation:
@@ -74,7 +74,7 @@ Map<String, List<QuestionModel>> questions = {
         OptionModel(optionName: "Berlin", isSelected: false),
         OptionModel(optionName: "Hamburg", isSelected: false),
         OptionModel(optionName: "Munich", isSelected: false),
-        OptionModel(optionName: "Cologne", isSelected: false),
+        // OptionModel(optionName: "Cologne", isSelected: false),
       ],
       correctAnswer: "Berlin",
       explanation:
@@ -87,7 +87,7 @@ Map<String, List<QuestionModel>> questions = {
         OptionModel(optionName: "Paris", isSelected: false),
         OptionModel(optionName: "Marseille", isSelected: false),
         OptionModel(optionName: "Lyon", isSelected: false),
-        OptionModel(optionName: "Toulouse", isSelected: false),
+        // OptionModel(optionName: "Toulouse", isSelected: false),
       ],
       correctAnswer: "Paris",
       explanation:
@@ -100,7 +100,7 @@ Map<String, List<QuestionModel>> questions = {
         OptionModel(optionName: "Rome", isSelected: false),
         OptionModel(optionName: "Milan", isSelected: false),
         OptionModel(optionName: "Naples", isSelected: false),
-        OptionModel(optionName: "Turin", isSelected: false),
+        // OptionModel(optionName: "Turin", isSelected: false),
       ],
       correctAnswer: "Rome",
       explanation:
@@ -113,7 +113,7 @@ Map<String, List<QuestionModel>> questions = {
         OptionModel(optionName: "Madrid", isSelected: false),
         OptionModel(optionName: "Barcelona", isSelected: false),
         OptionModel(optionName: "Valencia", isSelected: false),
-        OptionModel(optionName: "Seville", isSelected: false),
+        // OptionModel(optionName: "Seville", isSelected: false),
       ],
       correctAnswer: "Madrid",
       explanation:
@@ -125,7 +125,7 @@ Map<String, List<QuestionModel>> questions = {
       options: [
         OptionModel(optionName: "São Paulo", isSelected: false),
         OptionModel(optionName: "Rio de Janeiro", isSelected: false),
-        OptionModel(optionName: "Salvador", isSelected: false),
+        // OptionModel(optionName: "Salvador", isSelected: false),
         OptionModel(optionName: "Brasília", isSelected: false),
       ],
       correctAnswer: "Brasília",
@@ -138,7 +138,7 @@ Map<String, List<QuestionModel>> questions = {
       options: [
         OptionModel(optionName: "Toronto", isSelected: false),
         OptionModel(optionName: "Montreal", isSelected: false),
-        OptionModel(optionName: "Vancouver", isSelected: false),
+        // OptionModel(optionName: "Vancouver", isSelected: false),
         OptionModel(optionName: "Ottawa", isSelected: false),
       ],
       correctAnswer: "Ottawa",
@@ -151,7 +151,7 @@ Map<String, List<QuestionModel>> questions = {
       options: [
         OptionModel(optionName: "Sydney", isSelected: false),
         OptionModel(optionName: "Melbourne", isSelected: false),
-        OptionModel(optionName: "Brisbane", isSelected: false),
+        // OptionModel(optionName: "Brisbane", isSelected: false),
         OptionModel(optionName: "Canberra", isSelected: false),
       ],
       correctAnswer: "Canberra",
@@ -168,7 +168,7 @@ Map<String, List<QuestionModel>> questions = {
         OptionModel(optionName: "H2O", isSelected: false),
         OptionModel(optionName: "H2O2", isSelected: false),
         OptionModel(optionName: "H2O3", isSelected: false),
-        OptionModel(optionName: "H2O4", isSelected: false),
+        // OptionModel(optionName: "H2O4", isSelected: false),
       ],
       correctAnswer: "H2O",
       explanation:
@@ -181,7 +181,7 @@ Map<String, List<QuestionModel>> questions = {
         OptionModel(optionName: "CO2", isSelected: false),
         OptionModel(optionName: "CO3", isSelected: false),
         OptionModel(optionName: "CO4", isSelected: false),
-        OptionModel(optionName: "CO5", isSelected: false),
+        // OptionModel(optionName: "CO5", isSelected: false),
       ],
       correctAnswer: "CO2",
       explanation:
@@ -194,7 +194,7 @@ Map<String, List<QuestionModel>> questions = {
         OptionModel(optionName: "NH3", isSelected: false),
         OptionModel(optionName: "NH4", isSelected: false),
         OptionModel(optionName: "NH5", isSelected: false),
-        OptionModel(optionName: "NH6", isSelected: false),
+        // OptionModel(optionName: "NH6", isSelected: false),
       ],
       correctAnswer: "NH3",
       explanation:
@@ -207,7 +207,7 @@ Map<String, List<QuestionModel>> questions = {
         OptionModel(optionName: "CH4", isSelected: false),
         OptionModel(optionName: "CH5", isSelected: false),
         OptionModel(optionName: "CH6", isSelected: false),
-        OptionModel(optionName: "CH7", isSelected: false),
+        // OptionModel(optionName: "CH7", isSelected: false),
       ],
       correctAnswer: "CH4",
       explanation:
@@ -220,7 +220,7 @@ Map<String, List<QuestionModel>> questions = {
         OptionModel(optionName: "H2", isSelected: false),
         OptionModel(optionName: "H3", isSelected: false),
         OptionModel(optionName: "H4", isSelected: false),
-        OptionModel(optionName: "H5", isSelected: false),
+        // OptionModel(optionName: "H5", isSelected: false),
       ],
       correctAnswer: "H2",
       explanation:
@@ -330,7 +330,7 @@ Map<String, List<QuestionModel>> questions = {
         OptionModel(optionName: "Donald Trump", isSelected: false),
         OptionModel(optionName: "Joe Biden", isSelected: false),
         OptionModel(optionName: "Barack Obama", isSelected: false),
-        OptionModel(optionName: "George W. Bush", isSelected: false),
+        // OptionModel(optionName: "George W. Bush", isSelected: false),
       ],
       correctAnswer: "Joe Biden",
       explanation:
@@ -341,7 +341,7 @@ Map<String, List<QuestionModel>> questions = {
       question: "Who is the current president of India?",
       options: [
         OptionModel(optionName: "Ram Nath Kovind", isSelected: false),
-        OptionModel(optionName: "Pranab Mukherjee", isSelected: false),
+        // OptionModel(optionName: "Pranab Mukherjee", isSelected: false),
         OptionModel(optionName: "Rajendra Prasad", isSelected: false),
         OptionModel(optionName: "Sarvepalli Radhakrishnan", isSelected: false),
       ],
@@ -355,7 +355,7 @@ Map<String, List<QuestionModel>> questions = {
       options: [
         OptionModel(optionName: "Arif Alvi", isSelected: false),
         OptionModel(optionName: "Asif Ali Zardari", isSelected: false),
-        OptionModel(optionName: "Imran Khan", isSelected: false),
+        // OptionModel(optionName: "Imran Khan", isSelected: false),
         OptionModel(optionName: "Pervez Musharraf", isSelected: false),
       ],
       correctAnswer: "Arif Alvi",
@@ -369,7 +369,7 @@ Map<String, List<QuestionModel>> questions = {
         OptionModel(optionName: "Xi Jinping", isSelected: false),
         OptionModel(optionName: "Deng Xiaoping", isSelected: false),
         OptionModel(optionName: "Mao Zedong", isSelected: false),
-        OptionModel(optionName: "Sun Yat-sen", isSelected: false),
+        // OptionModel(optionName: "Sun Yat-sen", isSelected: false),
       ],
       correctAnswer: "Xi Jinping",
       explanation: "",
@@ -380,7 +380,7 @@ Map<String, List<QuestionModel>> questions = {
       options: [
         OptionModel(optionName: "Vladimir Putin", isSelected: false),
         OptionModel(optionName: "Dmitry Medvedev", isSelected: false),
-        OptionModel(optionName: "Nikita Khrushchev", isSelected: false),
+        // OptionModel(optionName: "Nikita Khrushchev", isSelected: false),
         OptionModel(optionName: "Vladimir Lenin", isSelected: false),
       ],
       correctAnswer: "Vladimir Putin",
@@ -394,7 +394,7 @@ Map<String, List<QuestionModel>> questions = {
         OptionModel(optionName: "Emmanuel Macron", isSelected: false),
         OptionModel(optionName: "François Hollande", isSelected: false),
         OptionModel(optionName: "Jacques Chirac", isSelected: false),
-        OptionModel(optionName: "Napoleon Bonaparte", isSelected: false),
+        // OptionModel(optionName: "Napoleon Bonaparte", isSelected: false),
       ],
       correctAnswer: "Emmanuel Macron",
       explanation:
@@ -423,7 +423,7 @@ Map<String, List<QuestionModel>> questions = {
         OptionModel(optionName: "Frank Darabont", isSelected: false),
         OptionModel(optionName: "Steven Spielberg", isSelected: false),
         OptionModel(optionName: "Martin Scorsese", isSelected: false),
-        OptionModel(optionName: "Quentin Tarantino", isSelected: false),
+        // OptionModel(optionName: "Quentin Tarantino", isSelected: false),
       ],
       correctAnswer: "Frank Darabont",
       explanation:
@@ -436,7 +436,7 @@ Map<String, List<QuestionModel>> questions = {
         OptionModel(optionName: "Francis Ford Coppola", isSelected: false),
         OptionModel(optionName: "Steven Spielberg", isSelected: false),
         OptionModel(optionName: "Martin Scorsese", isSelected: false),
-        OptionModel(optionName: "Quentin Tarantino", isSelected: false),
+        // OptionModel(optionName: "Quentin Tarantino", isSelected: false),
       ],
       correctAnswer: "Francis Ford Coppola",
       explanation:
@@ -449,7 +449,7 @@ Map<String, List<QuestionModel>> questions = {
         OptionModel(optionName: "Christopher Nolan", isSelected: false),
         OptionModel(optionName: "Steven Spielberg", isSelected: false),
         OptionModel(optionName: "Martin Scorsese", isSelected: false),
-        OptionModel(optionName: "Quentin Tarantino", isSelected: false),
+        // OptionModel(optionName: "Quentin Tarantino", isSelected: false),
       ],
       correctAnswer: "Christopher Nolan",
       explanation:
@@ -462,7 +462,7 @@ Map<String, List<QuestionModel>> questions = {
         OptionModel(optionName: "Peter Jackson", isSelected: false),
         OptionModel(optionName: "Steven Spielberg", isSelected: false),
         OptionModel(optionName: "Martin Scorsese", isSelected: false),
-        OptionModel(optionName: "Quentin Tarantino", isSelected: false),
+        // OptionModel(optionName: "Quentin Tarantino", isSelected: false),
       ],
       correctAnswer: "Peter Jackson",
       explanation:
@@ -475,7 +475,7 @@ Map<String, List<QuestionModel>> questions = {
         OptionModel(optionName: "Christopher Nolan", isSelected: false),
         OptionModel(optionName: "Steven Spielberg", isSelected: false),
         OptionModel(optionName: "Martin Scorsese", isSelected: false),
-        OptionModel(optionName: "Quentin Tarantino", isSelected: false),
+        // OptionModel(optionName: "Quentin Tarantino", isSelected: false),
       ],
       correctAnswer: "Christopher Nolan",
       explanation:
@@ -488,7 +488,7 @@ Map<String, List<QuestionModel>> questions = {
         OptionModel(optionName: "Christopher Nolan", isSelected: false),
         OptionModel(optionName: "Steven Spielberg", isSelected: false),
         OptionModel(optionName: "Martin Scorsese", isSelected: false),
-        OptionModel(optionName: "Quentin Tarantino", isSelected: false),
+        // OptionModel(optionName: "Quentin Tarantino", isSelected: false),
       ],
       correctAnswer: "Christopher Nolan",
       explanation:
@@ -501,7 +501,7 @@ Map<String, List<QuestionModel>> questions = {
         OptionModel(optionName: "Christopher Nolan", isSelected: false),
         OptionModel(optionName: "Steven Spielberg", isSelected: false),
         OptionModel(optionName: "Martin Scorsese", isSelected: false),
-        OptionModel(optionName: "Quentin Tarantino", isSelected: false),
+        // OptionModel(optionName: "Quentin Tarantino", isSelected: false),
       ],
       correctAnswer: "Christopher Nolan",
       explanation:
@@ -514,7 +514,7 @@ Map<String, List<QuestionModel>> questions = {
         OptionModel(optionName: "Christopher Nolan", isSelected: false),
         OptionModel(optionName: "Steven Spielberg", isSelected: false),
         OptionModel(optionName: "Martin Scorsese", isSelected: false),
-        OptionModel(optionName: "Quentin Tarantino", isSelected: false),
+        // OptionModel(optionName: "Quentin Tarantino", isSelected: false),
       ],
       correctAnswer: "Christopher Nolan",
       explanation:
@@ -527,7 +527,7 @@ Map<String, List<QuestionModel>> questions = {
         OptionModel(optionName: "The Wachowskis", isSelected: false),
         OptionModel(optionName: "Steven Spielberg", isSelected: false),
         OptionModel(optionName: "Martin Scorsese", isSelected: false),
-        OptionModel(optionName: "Quentin Tarantino", isSelected: false),
+        // OptionModel(optionName: "Quentin Tarantino", isSelected: false),
       ],
       correctAnswer: "The Wachowskis",
       explanation:
@@ -540,9 +540,9 @@ Map<String, List<QuestionModel>> questions = {
         OptionModel(optionName: "The Wachowskis", isSelected: false),
         OptionModel(optionName: "Steven Spielberg", isSelected: false),
         OptionModel(optionName: "Martin Scorsese", isSelected: false),
-        OptionModel(optionName: "Quentin Tarantino", isSelected: false),
+        // OptionModel(optionName: "Quentin Tarantino", isSelected: false),
       ],
-      correctAnswer: "The Wachowskis",
+      // correctAnswer: "The Wachowskis",
       explanation:
           "The Wachowskis are an American filmmaking brother duo consisting of Lana Wachowski and Lilly Wachowski. They are best known for writing and directing the science fiction action film The Matrix trilogy.",
       optionSelected: "",
@@ -553,7 +553,8 @@ Map<String, List<QuestionModel>> questions = {
         OptionModel(optionName: "The Wachowskis", isSelected: false),
         OptionModel(optionName: "Steven Spielberg", isSelected: false),
         OptionModel(optionName: "Martin Scorsese", isSelected: false),
-        OptionModel(optionName: "Quentin Tarantino", isSelected: false),
+        // OptionModel(optionName: "Quentin Tarantino", isSelected: false
+        // ),
       ],
       correctAnswer: "The Wachowskis",
       explanation:
@@ -566,7 +567,7 @@ Map<String, List<QuestionModel>> questions = {
         OptionModel(optionName: "The Wachowskis", isSelected: false),
         OptionModel(optionName: "Steven Spielberg", isSelected: false),
         OptionModel(optionName: "Martin Scorsese", isSelected: false),
-        OptionModel(optionName: "Quentin Tarantino", isSelected: false),
+        // OptionModel(optionName: "Quentin Tarantino", isSelected: false),
       ],
       correctAnswer: "The Wachowskis",
       explanation:
@@ -580,7 +581,7 @@ Map<String, List<QuestionModel>> questions = {
         OptionModel(optionName: "Peter Jackson", isSelected: false),
         OptionModel(optionName: "Steven Spielberg", isSelected: false),
         OptionModel(optionName: "Martin Scorsese", isSelected: false),
-        OptionModel(optionName: "Quentin Tarantino", isSelected: false),
+        // OptionModel(optionName: "Quentin Tarantino", isSelected: false),
       ],
       correctAnswer: "Peter Jackson",
       explanation:
@@ -594,7 +595,7 @@ Map<String, List<QuestionModel>> questions = {
         OptionModel(optionName: "Peter Jackson", isSelected: false),
         OptionModel(optionName: "Steven Spielberg", isSelected: false),
         OptionModel(optionName: "Martin Scorsese", isSelected: false),
-        OptionModel(optionName: "Quentin Tarantino", isSelected: false),
+        // OptionModel(optionName: "Quentin Tarantino", isSelected: false),
       ],
       correctAnswer: "Peter Jackson",
       explanation:
@@ -608,7 +609,7 @@ Map<String, List<QuestionModel>> questions = {
         OptionModel(optionName: "Peter Jackson", isSelected: false),
         OptionModel(optionName: "Steven Spielberg", isSelected: false),
         OptionModel(optionName: "Martin Scorsese", isSelected: false),
-        OptionModel(optionName: "Quentin Tarantino", isSelected: false),
+        // OptionModel(optionName: "Quentin Tarantino", isSelected: false),
       ],
       correctAnswer: "Peter Jackson",
       explanation:
@@ -622,7 +623,7 @@ Map<String, List<QuestionModel>> questions = {
         OptionModel(optionName: "Peter Jackson", isSelected: false),
         OptionModel(optionName: "Steven Spielberg", isSelected: false),
         OptionModel(optionName: "Martin Scorsese", isSelected: false),
-        OptionModel(optionName: "Quentin Tarantino", isSelected: false),
+        // OptionModel(optionName: "Quentin Tarantino", isSelected: false),
       ],
       correctAnswer: "Peter Jackson",
       explanation:
@@ -636,7 +637,7 @@ Map<String, List<QuestionModel>> questions = {
         OptionModel(optionName: "Peter Jackson", isSelected: false),
         OptionModel(optionName: "Steven Spielberg", isSelected: false),
         OptionModel(optionName: "Martin Scorsese", isSelected: false),
-        OptionModel(optionName: "Quentin Tarantino", isSelected: false),
+        // OptionModel(optionName: "Quentin Tarantino", isSelected: false),
       ],
       correctAnswer: "Peter Jackson",
       explanation:
@@ -650,7 +651,7 @@ Map<String, List<QuestionModel>> questions = {
         OptionModel(optionName: "Peter Jackson", isSelected: false),
         OptionModel(optionName: "Steven Spielberg", isSelected: false),
         OptionModel(optionName: "Martin Scorsese", isSelected: false),
-        OptionModel(optionName: "Quentin Tarantino", isSelected: false),
+        // OptionModel(optionName: "Quentin Tarantino", isSelected: false),
       ],
       correctAnswer: "Peter Jackson",
       explanation:
@@ -663,7 +664,7 @@ Map<String, List<QuestionModel>> questions = {
         OptionModel(optionName: "Christopher Nolan", isSelected: false),
         OptionModel(optionName: "Steven Spielberg", isSelected: false),
         OptionModel(optionName: "Martin Scorsese", isSelected: false),
-        OptionModel(optionName: "Quentin Tarantino", isSelected: false),
+        // OptionModel(optionName: "Quentin Tarantino", isSelected: false),
       ],
       correctAnswer: "Christopher Nolan",
       explanation:
@@ -676,7 +677,7 @@ Map<String, List<QuestionModel>> questions = {
         OptionModel(optionName: "Christopher Nolan", isSelected: false),
         OptionModel(optionName: "Steven Spielberg", isSelected: false),
         OptionModel(optionName: "Martin Scorsese", isSelected: false),
-        OptionModel(optionName: "Quentin Tarantino", isSelected: false),
+        // OptionModel(optionName: "Quentin Tarantino", isSelected: false),
       ],
       correctAnswer: "Christopher Nolan",
       explanation:
@@ -691,7 +692,7 @@ Map<String, List<QuestionModel>> questions = {
         OptionModel(optionName: "Virat Kohli", isSelected: false),
         OptionModel(optionName: "Rohit Sharma", isSelected: false),
         OptionModel(optionName: "MS Dhoni", isSelected: false),
-        OptionModel(optionName: "Kane Williamson", isSelected: false),
+        // OptionModel(optionName: "Kane Williamson", isSelected: false),
       ],
       correctAnswer: "Virat Kohli",
       explanation:
@@ -704,7 +705,7 @@ Map<String, List<QuestionModel>> questions = {
         OptionModel(optionName: "Sunil Chhetri", isSelected: false),
         OptionModel(optionName: "Rohit Sharma", isSelected: false),
         OptionModel(optionName: "MS Dhoni", isSelected: false),
-        OptionModel(optionName: "Kane Williamson", isSelected: false),
+        // OptionModel(optionName: "Kane Williamson", isSelected: false),
       ],
       correctAnswer: "Sunil Chhetri",
       explanation:
@@ -716,7 +717,7 @@ Map<String, List<QuestionModel>> questions = {
       options: [
         OptionModel(optionName: "Sunil Chhetri", isSelected: false),
         OptionModel(optionName: "Rohit Sharma", isSelected: false),
-        OptionModel(optionName: "MS Dhoni", isSelected: false),
+        // OptionModel(optionName: "MS Dhoni", isSelected: false),
         OptionModel(optionName: "Manpreet Singh", isSelected: false),
       ],
       correctAnswer: "Manpreet Singh",
