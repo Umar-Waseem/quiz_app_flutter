@@ -14,7 +14,7 @@ Map<String, List<QuestionModel>> questions = {
       correctAnswer: "Delhi",
       explanation:
           "Delhi is the capital of India. It is the second most populous city in India after Mumbai.",
-      optionSelected: "as",
+      optionSelected: "",
     ),
     QuestionModel(
       question: "What is the capital of Pakistan?",
@@ -236,7 +236,7 @@ Map<String, List<QuestionModel>> questions = {
         OptionModel(optionName: "George Washington", isSelected: false),
         OptionModel(optionName: "John Adams", isSelected: false),
         OptionModel(optionName: "Thomas Jefferson", isSelected: false),
-        OptionModel(optionName: "James Madison", isSelected: false),
+        // OptionModel(optionName: "James Madison", isSelected: false),
       ],
       correctAnswer: "George Washington",
       explanation:
@@ -249,7 +249,7 @@ Map<String, List<QuestionModel>> questions = {
         OptionModel(optionName: "Rajendra Prasad", isSelected: false),
         OptionModel(optionName: "Sarvepalli Radhakrishnan", isSelected: false),
         OptionModel(optionName: "Dr. Zakir Hussain", isSelected: false),
-        OptionModel(optionName: "Pranab Mukherjee", isSelected: false),
+        // OptionModel(optionName: "Pranab Mukherjee", isSelected: false),
       ],
       correctAnswer: "Rajendra Prasad",
       explanation:
@@ -262,7 +262,7 @@ Map<String, List<QuestionModel>> questions = {
         OptionModel(optionName: "Iskander Mirza", isSelected: false),
         OptionModel(optionName: "Ayub Khan", isSelected: false),
         OptionModel(optionName: "Zulfikar Ali Bhutto", isSelected: false),
-        OptionModel(optionName: "Mohammad Ali Jinnah", isSelected: false),
+        // OptionModel(optionName: "Mohammad Ali Jinnah", isSelected: false),
       ],
       correctAnswer: "Iskander Mirza",
       explanation:
@@ -275,7 +275,7 @@ Map<String, List<QuestionModel>> questions = {
         OptionModel(optionName: "Mao Zedong", isSelected: false),
         OptionModel(optionName: "Chiang Kai-shek", isSelected: false),
         OptionModel(optionName: "Sun Yat-sen", isSelected: false),
-        OptionModel(optionName: "Deng Xiaoping", isSelected: false),
+        // OptionModel(optionName: "Deng Xiaoping", isSelected: false),
       ],
       correctAnswer: "Sun Yat-sen",
       explanation:
@@ -287,7 +287,7 @@ Map<String, List<QuestionModel>> questions = {
       options: [
         OptionModel(optionName: "Vladimir Lenin", isSelected: false),
         OptionModel(optionName: "Joseph Stalin", isSelected: false),
-        OptionModel(optionName: "Nikita Khrushchev", isSelected: false),
+        // OptionModel(optionName: "Nikita Khrushchev", isSelected: false),
         OptionModel(optionName: "Boris Yeltsin", isSelected: false),
       ],
       correctAnswer: "Vladimir Lenin",
@@ -301,7 +301,7 @@ Map<String, List<QuestionModel>> questions = {
         OptionModel(optionName: "Napoleon Bonaparte", isSelected: false),
         OptionModel(optionName: "Charles de Gaulle", isSelected: false),
         OptionModel(optionName: "Jacques Chirac", isSelected: false),
-        OptionModel(optionName: "François Hollande", isSelected: false),
+        // OptionModel(optionName: "François Hollande", isSelected: false),
       ],
       correctAnswer: "Napoleon Bonaparte",
       explanation:
@@ -314,7 +314,7 @@ Map<String, List<QuestionModel>> questions = {
         OptionModel(optionName: "Franz von Papen", isSelected: false),
         OptionModel(optionName: "Paul von Hindenburg", isSelected: false),
         OptionModel(optionName: "Theodor Heuss", isSelected: false),
-        OptionModel(optionName: "Willy Brandt", isSelected: false),
+        // OptionModel(optionName: "Willy Brandt", isSelected: false),
       ],
       correctAnswer: "Theodor Heuss",
       explanation:
@@ -407,7 +407,7 @@ Map<String, List<QuestionModel>> questions = {
         OptionModel(optionName: "Frank-Walter Steinmeier", isSelected: false),
         OptionModel(optionName: "Willy Brandt", isSelected: false),
         OptionModel(optionName: "Theodor Heuss", isSelected: false),
-        OptionModel(optionName: "Paul von Hindenburg", isSelected: false),
+        // OptionModel(optionName: "Paul von Hindenburg", isSelected: false),
       ],
       correctAnswer: "Frank-Walter Steinmeier",
       explanation:
@@ -542,7 +542,7 @@ Map<String, List<QuestionModel>> questions = {
         OptionModel(optionName: "Martin Scorsese", isSelected: false),
         // OptionModel(optionName: "Quentin Tarantino", isSelected: false),
       ],
-      // correctAnswer: "The Wachowskis",
+      correctAnswer: "The Wachowskis",
       explanation:
           "The Wachowskis are an American filmmaking brother duo consisting of Lana Wachowski and Lilly Wachowski. They are best known for writing and directing the science fiction action film The Matrix trilogy.",
       optionSelected: "",
