@@ -34,9 +34,12 @@ class _SeeAnswersScreenState extends State<SeeAnswersScreen> {
                 style: customTextThemes.headline1,
               ),
               const SizedBox(height: 20),
-              ListView(
-                shrinkWrap: true,
-                children: widget.quizModel.getQuestionsAnswers,
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.7,
+                child: ListView(
+                  shrinkWrap: true,
+                  children: widget.quizModel.getQuestionsAnswers,
+                ),
               ),
             ],
           ),
